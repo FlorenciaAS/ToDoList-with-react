@@ -15,7 +15,12 @@ function App() {
     { name: "Fourth task", done: false },
   ]);
 
-  //para cambiar de true a false
+  const createNewTask= taskName => {
+    if(!taskItems.find(t => t.name === taskName)){
+      setTaksItems([...taskItems, {name: taskName, done:false}])
+    }
+  }
+
   const toggleTask = (task) =>
     setTaksItems(
       taskItems.map((t) => (t.name === task.name ? { ...t, done: !t.done } : t))
@@ -27,10 +32,11 @@ function App() {
     ));
   };
 
+
   return (
-    <div className="App">
+    <div>
       <TaskBanner userName={userName} taskItems={taskItems} />
-      <TaskCreator />
+      <TaskCreator callback={createNewTask} />
 
       <table className="table table-striped table-bordered">
         <thead>
@@ -40,7 +46,7 @@ function App() {
           </tr>
         </thead>
 
-        <tbody>{taskTableRow()}</tbody>
+        <tbody>{taskTableRow(false)}</tbody>
       </table>
     </div>
   );

@@ -1,5 +1,5 @@
 //Definir un formulario para guardar tareas en el estado de la aplicacion
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 export const TaskCreator = props => {
   const [newTaskName, setNewTaskName] = useState("");
@@ -24,4 +24,4 @@ export const TaskCreator = props => {
       </button>
     </div>
   );
-};
+};  
