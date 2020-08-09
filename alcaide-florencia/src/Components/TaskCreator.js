@@ -15,6 +15,7 @@ export const TaskCreator = props => {
     <div className="my-1">
       <input
         type="text"
+        placeholder='Write here you task'
         className="form-control"
         value={newTaskName}
         onChange={updateNewTaskValue}
